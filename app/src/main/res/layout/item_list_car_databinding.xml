@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="item"
+            type="com.kelvin.recyclerview.domain.Car" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="7dp"
+        app:cardUseCompatPadding="true"
+        app:shapeAppearance="@null">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/itemlayout_listcar_background"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/shape_background_car_list"
+                android:backgroundTint="@{ContextCompat.getColor(context,item.featureCar.colorRes)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/itemlayout_listcar_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@{ContextCompat.getDrawable(context, item.featureCar.imgCar)}"
+                tools:srcCompat="@drawable/img_vehicle_flying_car"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/itemlayout_listcar_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="@{item.nameCar}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Nombre del coche" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/itemlayout_listcar_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{String.valueOf(item.priceCar)}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@id/itemlayout_listcar_name"
+                app:layout_constraintTop_toBottomOf="@id/itemlayout_listcar_name"
+                tools:text="Precio del coche" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/itemlayout_listcar_favorite"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginBottom="24dp"
+                android:elevation="30dp"
+                app:layout_constraintBottom_toBottomOf="@id/itemlayout_listcar_background"
+                app:layout_constraintStart_toStartOf="@id/itemlayout_listcar_name"
+                app:srcCompat="@drawable/ic_star" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

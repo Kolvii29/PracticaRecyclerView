@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RecyclerView</string>
+    <string name="title_recycler_cars">Viaja con nuestros vehiculos</string>
+</resources>
